@@ -133,20 +133,19 @@ namespace WordHelper
         }
 
         private void button_search_Click(object sender, EventArgs e)
-        {
-            SetStatus(false);
+        {  
             richTextBox_status.Text = "";
             ReplaceFileInfo info = GetInfo();
             if (!check(info))
             {
                 return;
             }
+            SetStatus(false);
             Thread thread = new Thread(new ParameterizedThreadStart(ReplaceInFilesFunction.FindString));
             thread.Start(info);
         }
         private void button_replace_Click(object sender, EventArgs e)
         {
-            SetStatus(false);
             richTextBox_status.Text = "";
             ReplaceFileInfo info = GetInfo();
             if (!check(info))
@@ -158,6 +157,7 @@ namespace WordHelper
                 SetRichBoxText("警告：您还未设置结果文件夹！");
                 return;
             }
+            SetStatus(false);
             Thread thread = new Thread(new ParameterizedThreadStart(ReplaceInFilesFunction.ReplaceString));
             thread.Start(info);
         }
