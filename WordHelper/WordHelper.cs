@@ -10,11 +10,18 @@ using System.Windows.Forms;
 
 namespace WordHelper
 {
-    public partial class Form1 : Form
+    public partial class WordHelper : Form
     {
-        public Form1()
+        public WordHelper()
         {
             InitializeComponent();
+        }
+
+        private void button_replaceAll_Click(object sender, EventArgs e)
+        {
+            ReplaceInFiles replaceFilesWindow = new ReplaceInFiles();
+
+            replaceFilesWindow.ShowDialog();
         }
     }
 }
